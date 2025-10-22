@@ -88,7 +88,7 @@ Each notebook includes:
 
 ### Accuracy Comparison
 
-![Model Accuracy Chart](visualizations/model_accuracy_comparison.png)
+![Model Accuracy Chart](assets/chart.png)
 
 | Rank | Model | Test Accuracy | Training Time | Parameters | Notes |
 |------|-------|---------------|---------------|------------|-------|
@@ -106,7 +106,7 @@ Each notebook includes:
 
 Results on test set (600 images):
 
-![Confusion Matrix](visualizations/confusion_matrix_xceptionlstm.png)
+![Confusion Matrix](assets/confusion_matrix.png)
 
 **Key Observations**:
 - Most confusion occurs between **Early Ripe** and **Unripe** stages (9 misclassifications)
