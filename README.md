@@ -5,8 +5,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Accuracy](https://img.shields.io/badge/Accuracy-99%25-success.svg)](README.md)
 
-This repository contains code and models for classifying mango ripeness stages using deep learning techniques. The project leverages various pre-trained CNN architectures to identify six stages of mango ripeness.
-
+This project implements deep learning models to classify **six stages of mango ripeness** using transfer learning and hybrid architectures. Additionally, Grad-CAM visualizations are used to interpret the decision-making process of the models.
 ## 📊 Overview
 
 - **Dataset**: 6,000 mango images (1,000 per class)
@@ -102,7 +101,64 @@ Each notebook includes:
 | 7 | **VGG19** | **97.00%** | ~55 min | 144M | Classic architecture, very deep |
 | 8 | **ResNet50** | **92.00%** | ~38 min | 26M | Good baseline with residual connections |
 
-### Confusion Matrix - XceptionLSTM (Best Model)
+#### Interactive Chart
+
+To view an interactive accuracy comparison chart, save the following code as `index.html` and open it in your browser:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mango Ripeness Model Accuracy</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <canvas id="accuracyChart" width="400" height="200"></canvas>
+    <script>
+        const ctx = document.getElementById('accuracyChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["DenseNet201", "InceptionV3", "MobileNetV2", "Xception", "XceptionLSTM (CM)", "CNN", "VGG19", "ResNet50"],
+                datasets: [{
+                    label: 'Accuracy',
+                    data: [0.99, 0.98, 0.98, 0.98, 0.9833, 0.97, 0.97, 0.92],
+                    backgroundColor: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f"],
+                    borderColor: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f"],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: "Accuracy"
+                        },
+                        max: 1.0
+                    },
+                    x: {
+                        title: {
+                            display: true,
+                            text: "Model"
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: "Model Accuracy Comparison"
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+```
+
+### Confusion Matrix - DenseNet201 (Best Model)
 
 Results on test set (600 images):
 
@@ -157,6 +213,13 @@ mango-ripeness-classification/
 
 Grad-CAM (Gradient-weighted Class Activation Mapping) helps visualize which parts of the mango image the model focuses on when making predictions. This provides interpretability and helps validate that the model is learning relevant features.
 
+![image](https://github.com/user-attachments/assets/a540502b-54f6-40db-8ca0-9cf2ba303e3e)
+![image](https://github.com/user-attachments/assets/c5a1dbcc-66d1-4f1d-99eb-c3eccf563a7b)
+![image](https://github.com/user-attachments/assets/a4ac0b3b-9d48-48db-8dee-22d56a9f210c)
+![image](https://github.com/user-attachments/assets/ebbb81a2-1f5f-4856-bef9-c83e9d30a471)
+![image](https://github.com/user-attachments/assets/5dbe55db-d9ba-4385-b92d-953ff6529fc7)
+![image](https://github.com/user-attachments/assets/7ff741d0-3a61-4d9a-b9a3-36cfcf987294)
+
 ## 🤝 Contributing
 
 Contributions are welcome! Here's how you can help:
@@ -198,13 +261,7 @@ For questions or feedback, please open an issue or reach out through GitHub.
 
 ⭐ **If you find this project useful, please consider giving it a star!** ⭐
 
-# Grad CAM
-![image](https://github.com/user-attachments/assets/a540502b-54f6-40db-8ca0-9cf2ba303e3e)
-![image](https://github.com/user-attachments/assets/c5a1dbcc-66d1-4f1d-99eb-c3eccf563a7b)
-![image](https://github.com/user-attachments/assets/a4ac0b3b-9d48-48db-8dee-22d56a9f210c)
-![image](https://github.com/user-attachments/assets/ebbb81a2-1f5f-4856-bef9-c83e9d30a471)
-![image](https://github.com/user-attachments/assets/5dbe55db-d9ba-4385-b92d-953ff6529fc7)
-![image](https://github.com/user-attachments/assets/7ff741d0-3a61-4d9a-b9a3-36cfcf987294)
+
 
 
 
