@@ -106,7 +106,7 @@ Each notebook includes:
 
 Results on test set (600 images):
 
-![Confusion Matrix](assets/confusion_matrix.png)
+![Confusion Matrix](assets/confusin_matrix.png)
 
 **Key Observations**:
 - Most confusion occurs between **Early Ripe** and **Unripe** stages (9 misclassifications)
