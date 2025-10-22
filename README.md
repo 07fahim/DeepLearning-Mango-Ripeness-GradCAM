@@ -101,62 +101,6 @@ Each notebook includes:
 | 7 | **VGG19** | **97.00%** | ~55 min | 144M | Classic architecture, very deep |
 | 8 | **ResNet50** | **92.00%** | ~38 min | 26M | Good baseline with residual connections |
 
-#### Interactive Chart
-
-To view an interactive accuracy comparison chart, save the following code as `index.html` and open it in your browser:
-
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Mango Ripeness Model Accuracy</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-    <canvas id="accuracyChart" width="400" height="200"></canvas>
-    <script>
-        const ctx = document.getElementById('accuracyChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ["DenseNet201", "InceptionV3", "MobileNetV2", "Xception", "XceptionLSTM (CM)", "CNN", "VGG19", "ResNet50"],
-                datasets: [{
-                    label: 'Accuracy',
-                    data: [0.99, 0.98, 0.98, 0.98, 0.9833, 0.97, 0.97, 0.92],
-                    backgroundColor: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f"],
-                    borderColor: ["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f"],
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        title: {
-                            display: true,
-                            text: "Accuracy"
-                        },
-                        max: 1.0
-                    },
-                    x: {
-                        title: {
-                            display: true,
-                            text: "Model"
-                        }
-                    }
-                },
-                plugins: {
-                    title: {
-                        display: true,
-                        text: "Model Accuracy Comparison"
-                    }
-                }
-            }
-        });
-    </script>
-</body>
-</html>
-```
 
 ### Confusion Matrix - DenseNet201 (Best Model)
 
